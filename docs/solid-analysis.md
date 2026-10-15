@@ -1,6 +1,6 @@
 # SOLID analysis of the original `ClubManager`
 
-The line references refer to the original `starter/Ch02.Refactor/ClubManager.cs` before the refactor.
+The line references refer to the original `Ch02.Refactor/ClubManager.cs` before the refactor.
 
 | Original location | Principle | Violation and consequence |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ The line references refer to the original `starter/Ch02.Refactor/ClubManager.cs`
 ## Refactored responsibilities
 
 - `ClubService` handles club and membership use cases through injected repository, logger, and notification interfaces.
-- `IClubRepository` and `IMemberRepository` keep club and membership storage contracts focused. `LoggingClubRepository` decorates both contracts.
+- `IClubRepository`, `IMemberRepository`, and `IEventRepository` keep storage contracts focused. `LoggingClubRepository` decorates the club repository.
 - `EventService` publishes created events to `IEventObserver` implementations.
 - `ReportService` delegates formatting to `IReportStrategy` implementations for console and CSV output.
 - `NotificationServiceFactory` creates notification services by `NotificationChannel`.
